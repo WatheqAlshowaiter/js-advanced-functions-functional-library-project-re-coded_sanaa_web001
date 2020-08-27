@@ -110,16 +110,19 @@ const fi = (function () {
     flatten: function () {},
 
     keys: function (obj) {
+      // Using for loop
       const keys = [];
-      for (key in obj) {
+      for (let key in obj) {
         keys.push(key);
       }
       return keys;
     },
+
     values: function (obj) {
+      // Using for loop
       const values = [];
-      for (value in obj) {
-        values.push(obj[value]);
+      for (let key in obj) {
+        values.push(obj[key]);
       }
       return values;
     },
