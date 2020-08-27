@@ -106,11 +106,15 @@ const fi = (function () {
       return array.slice(array.length - n, array.length);
       // return array.slice(array.n, array.length);
     },
-    sortBy: function () {},
-    flatten: function () {},
+    sortBy: function (collection, callback) {
+      const newArr = [...collection];
+      return newArr.sort(function (a, b) {
+        return callback(a) - callback(b);
+      });
+    },
+    // flatten: function () {},
 
     keys: function (obj) {
-      // Using for loop
       const keys = [];
       for (let key in obj) {
         keys.push(key);
@@ -119,7 +123,6 @@ const fi = (function () {
     },
 
     values: function (obj) {
-      // Using for loop
       const values = [];
       for (let key in obj) {
         values.push(obj[key]);
