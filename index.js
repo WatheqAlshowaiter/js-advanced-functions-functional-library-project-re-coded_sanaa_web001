@@ -80,7 +80,8 @@ const fi = (function () {
       if (!n) {
         return array[array.length - 1];
       }
-      return array.slice(array.n, array.length);
+      return array.slice(array.length - n, array.length);
+      // return array.slice(array.n, array.length);
     },
     keys: function (obj) {
       const keys = [];
