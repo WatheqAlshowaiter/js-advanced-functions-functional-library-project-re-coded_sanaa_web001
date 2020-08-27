@@ -61,7 +61,18 @@ const fi = (function () {
       return acc;
     },
 
-    uniq: function (array, isSorted, callback) {
+    uniqSorted: function (collection, iteratee) {
+      const sorted = [collection[0]];
+      for (let idx = 1; idx < collection.length; idx++) {
+        if (sorted[idx - 1] !== collection[idx]) sorted.push(collection[idx]);
+      }
+      return sorted;
+    },
+
+    uniq: function (array, isSorted = false, callback) {
+      if (callback) {
+        return [...new Set(callback(array))];
+      }
       return [...new Set(array)];
     },
     compact: function (array) {
@@ -83,6 +94,9 @@ const fi = (function () {
       return array.slice(array.length - n, array.length);
       // return array.slice(array.n, array.length);
     },
+    sortBy: function () {},
+    flatten: function () {},
+
     keys: function (obj) {
       const keys = [];
       for (key in obj) {
