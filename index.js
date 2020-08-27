@@ -112,6 +112,11 @@ const fi = (function () {
         return callback(a) - callback(b);
       });
     },
+    unpack: function(receiver, arr) {
+      for (let val of arr)
+        receiver.push(val)
+    },
+
     flatten: function (collection, shallow, newArr=[]) {
       if (!Array.isArray(collection)) return newArr.push(collection)
       if (shallow) {
