@@ -112,10 +112,16 @@ const fi = (function () {
         return callback(a) - callback(b);
       });
     },
-    flatten: function (array) {
-      let array = [];
-      for (let i = 0; i < arr.length; i++) {
-        array = array.concat(flatten(arr[i]));
+    flatten: function (arr) {
+      var array = [];
+      while (arr.length) {
+        var value = arr.shift();
+        if (Array.isArray(value)) {
+          // this line preserve the order
+          arr = value.concat(arr);
+        } else {
+          array.push(value);
+        }
       }
       return array;
     },
