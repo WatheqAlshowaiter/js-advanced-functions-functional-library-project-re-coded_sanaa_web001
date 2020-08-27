@@ -112,7 +112,13 @@ const fi = (function () {
         return callback(a) - callback(b);
       });
     },
-    // flatten: function () {},
+    flatten: function (array) {
+      let array = [];
+      for (let i = 0; i < arr.length; i++) {
+        array = array.concat(flatten(arr[i]));
+      }
+      return array;
+    },
 
     keys: function (obj) {
       const keys = [];
