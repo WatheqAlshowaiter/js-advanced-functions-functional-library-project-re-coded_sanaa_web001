@@ -112,7 +112,7 @@ const fi = (function () {
         return callback(a) - callback(b);
       });
     },
-    flatten: function (arr, shallow) {
+    flatten: function (collection, shallow, newArr=[]) {
       if (!Array.isArray(collection)) return newArr.push(collection)
       if (shallow) {
         for (let val of collection)
